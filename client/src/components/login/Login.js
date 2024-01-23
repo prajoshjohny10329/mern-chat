@@ -18,7 +18,7 @@ import {actionTypes} from '../contextApi/reducer.js';
             type: actionTypes.SET_USER,
             user: result.user,
            });
-           console.log(result.user.displayName);
+           console.log(result.user);
         })
         .catch((err)=>{
             alert('error in google sign IN');
