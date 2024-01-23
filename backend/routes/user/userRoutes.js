@@ -5,6 +5,8 @@ const postController =  require('../../controllers/postController')
 
 router.get('/', userController.getHomePage)
 
+router.get('/groups', userController.getAllGroups)
+
 router.post('/group/create',postController.createRoom)
 
 router.post('/message/new',postController.addMessage)

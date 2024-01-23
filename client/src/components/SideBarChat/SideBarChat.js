@@ -2,8 +2,9 @@ import React from 'react'
 import './SideBarChat.css'
 import { Avatar } from '@mui/material'
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
-const SideBarChat = ({addNewChat}) => {
+const SideBarChat = ({addNewChat,name,id}) => {
 
   const createGroup = async ()=>{
     console.log('create group');
@@ -23,15 +24,17 @@ const SideBarChat = ({addNewChat}) => {
   }
    
   return !addNewChat ? (
-    <div className='sidebar-chat'>
-        <Avatar src='https://api.dicebear.com/7.x/adventurer/svg' />
+    <Link to={`room/${id}`}>
+      <div className="sidebar-chat">
+        <Avatar src="https://api.dicebear.com/7.x/adventurer/svg" />
         <div className="chat-info">
-            <h2>Prajosh johny</h2>
+          <h2 >{name}</h2>
         </div>
-    </div>
-  ):(
-    <div className='sidebar-chat'>
-        <h2 onClick={createGroup}>add new Chat</h2>
+      </div>
+    </Link>
+  ) : (
+    <div className="sidebar-chat">
+      <h2 onClick={createGroup}>add new Chat</h2>
     </div>
   );
 }
